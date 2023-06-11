@@ -37,20 +37,16 @@ Dataset yang digunakan dalam proyek ini adalah dataset harga jual rumah atau pro
 Berikut ini adalah informasi lebih terperinci tentang dataset:
 
 - Jumlah baris (observasi): 562
-
 - Jumlah kolom (variabel): 5
-
 - Variabel yang terdapat dalam dataset:
 
-  - Harga (Price): Merupakan variabel target yang menunjukkan harga jual rumah atau properti dalam mata uang tertentu.
-
+  - Harga (Price (THB)): Merupakan variabel target yang menunjukkan harga jual rumah atau properti dalam mata uang tertentu.
   - Luas Bangunan (Area (sq. ft.)): Merupakan luas bangunan rumah atau properti dalam satuan tertentu.
-
   - Jumlah Kamar Tidur (Bedrooms): Merupakan jumlah kamar tidur yang dimiliki oleh rumah atau properti.
-
   - Jumlah Kamar Mandi (Bathrooms): Merupakan jumlah kamar mandi yang dimiliki oleh rumah atau properti.
-
   - Lokasi (Location): Merupakan lokasi rumah atau properti di Thailand, Bangkok.
+
+Sumber dataset ini berasal dari Kaggle. Anda dapat mengakses dataset tersebut melalui tautan berikut: [Bangkok Housing Condo Apartment Prices](https://www.kaggle.com/datasets/varintornsithisint/bangkok-housing-condo-apartment-prices)
 
 ### EDA - Handling Outliers:
 
@@ -213,14 +209,8 @@ Pada bagian Data Preparation, terdapat beberapa langkah preprocessing yang dilak
 3. Pembagian dataset menggunakan fungsi `train_test_split` dari library sklearn:
 
    - Pada tahap ini, dataset akan dibagi menjadi subset data latih (training set) dan subset data uji (testing set) menggunakan fungsi `train_test_split` dari library sklearn.
-
    - Proporsi pembagian dataset yang digunakan adalah 90% data untuk latihan (training set) dan 10% data untuk pengujian (testing set).
-
-   - Hasil dari pembagian dataset dapat dilihat pada Gambar 12. Hasil pembagian menggunakan fungsi `train_test_split` dari library sklearn yang telah diberikan sebelumnya. Pada gambar tersebut, dapat dilihat bahwa dataset telah terbagi menjadi dua subset dengan proporsi yang telah ditentukan.
-
-     ![Hasil Pembagian train_test_split](https://github.com/mauluddin12z/Proyek-1-Machine-Learning-Dicoding/assets/71598808/182a0c73-de93-442b-8498-cdcec94c99a4)
-
-     Gambar 12. Hasil pembagian menggunakan fungsi train_test_split dari library sklearn
+   - Hasil pembagian menggunakan fungsi `train_test_split` yang didapatkan dari library sklearn adalah sebagai berikut: Total semua sampel 562, Total sampel train 506, dan Total sampel test 56.
 
 Dengan melakukan langkah-langkah preprocessing di atas, data telah siap untuk dilakukan tahap modelling.
 
@@ -237,6 +227,10 @@ Keuntungan dari penggunaan KNN adalah kemudahannya dalam implementasi dan interp
 Namun, KNN juga memiliki beberapa kelemahan. Salah satunya adalah komputasi yang intensif karena harus menghitung jarak antara setiap pasangan data dalam set pelatihan. Hal ini dapat mempengaruhi waktu komputasi ketika dataset menjadi besar. Selain itu, KNN sensitif terhadap skala data, sehingga perlu dilakukan penskalaan data yang tepat sebelumnya. Selain itu, pemilihan parameter k (jumlah tetangga) dalam KNN juga perlu diperhatikan karena dapat mempengaruhi kinerja dan generalisasi model.
 
 KNN cocok digunakan untuk masalah klasifikasi dengan dataset yang relatif kecil dan dengan fitur-fitur yang saling terkait erat. Namun, untuk masalah regresi dan dataset dengan dimensi tinggi, KNN mungkin tidak selalu menjadi pilihan terbaik dan algoritma lain seperti regresi linear atau metode ensemble seperti random forest dapat memberikan hasil yang lebih baik. Penting untuk mengevaluasi berbagai algoritma dan mempertimbangkan karakteristik data serta tujuan yang ingin dicapai sebelum memilih algoritma yang paling sesuai untuk pemodelan.
+
+Parameter yang digunakan:
+
+- `n_neighbors`: Parameter ini menentukan jumlah tetangga terdekat yang akan digunakan dalam proses prediksi. Pada contoh ini, nilai `n_neighbors` adalah 10. Artinya, KNN akan mempertimbangkan 10 tetangga terdekat dalam menghasilkan prediksi.
 
 ### Random Forest
 
@@ -257,11 +251,33 @@ Beberapa kelemahan dari *Random Forest* adalah:
 
 *Random Forest* biasanya digunakan dalam berbagai jenis masalah, termasuk klasifikasi, regresi, dan deteksi anomali. Algoritma ini efektif untuk dataset dengan banyak fitur dan dataset yang cukup besar.
 
+Parameter yang digunakan: 
+
+1. `n_estimators`: Parameter ini menentukan jumlah pohon keputusan yang akan digunakan dalam pembentukan hutan. Pada contoh ini, nilai `n_estimators` adalah 50. Artinya, Random Forest akan terdiri dari 50 pohon keputusan.
+2. `max_depth`: Parameter ini menentukan kedalaman maksimum setiap pohon keputusan dalam hutan. Pada contoh ini, nilai `max_depth` adalah 16. Hal ini berarti setiap pohon keputusan dalam Random Forest memiliki kedalaman maksimum 16.
+3. `random_state`: Parameter ini digunakan untuk mengontrol inisialisasi generator angka acak yang digunakan dalam proses pembentukan model. Pada contoh ini, nilai `random_state` adalah 55. Dengan menggunakan nilai `random_state` yang sama pada setiap eksekusi, kita dapat memastikan bahwa model yang dihasilkan akan konsisten.
+4. `n_jobs`: Parameter ini menentukan jumlah pekerjaan yang akan dijalankan secara paralel saat melatih pohon-pohon keputusan dalam hutan. Pada contoh ini, nilai `n_jobs` adalah -1. Ini berarti model akan menggunakan semua core yang tersedia pada komputer untuk proses paralel.
+
+Dengan menggunakan parameter-parameter di atas, Random Forest akan dibuat dengan 50 pohon keputusan, setiap pohon memiliki kedalaman maksimum 16. Inisialisasi generator angka acak dilakukan dengan `random_state=55`, dan proses pelatihan akan dilakukan secara paralel menggunakan semua core yang tersedia pada komputer.
+
+Hasil dari model Random Forest tersebut akan digunakan untuk menghitung nilai *mean squared error* (MSE) pada data pelatihan, dan nilai MSE tersebut akan disimpan dalam variabel `models.loc['train_mse', 'RandomForest']`.
+
 ### Boosting Algorithm
 
 *Boosting* adalah teknik dalam *machine learning* yang digunakan untuk meningkatkan performa model prediksi dengan menggabungkan beberapa model lemah menjadi satu model yang lebih kuat. Pada dasarnya, algoritma *boosting* berfokus pada meningkatkan kemampuan prediksi dengan mengurangi bias dan varian model.
 
 Keuntungan dari algoritma *boosting* adalah kemampuannya menghasilkan model prediksi yang lebih kuat dibandingkan dengan model tunggal. Algoritma ini mampu menangani data yang kompleks dan memiliki performa yang baik dalam berbagai tugas seperti klasifikasi dan regresi. Namun, algoritma *boosting* juga cenderung lebih kompleks dan membutuhkan waktu komputasi yang lebih lama dibandingkan dengan algoritma lainnya.
+
+Parameter yang digunakan:
+
+Berikut adalah penjelasan mengenai parameter yang digunakan pada algoritma Boosting (AdaBoostRegressor) dalam contoh kode yang Anda berikan:
+
+1. `learning_rate`: Parameter ini mengontrol kontribusi setiap model basis (weak learner) dalam pembentukan model ensemble. Learning rate yang lebih rendah dapat mengurangi pengaruh setiap model basis, yang dapat membantu dalam mengurangi overfitting. Pada contoh ini, nilai `learning_rate` adalah 0.05.
+2. `random_state`: Parameter ini digunakan untuk mengontrol inisialisasi generator angka acak yang akan mempengaruhi pemilihan sampel yang acak. Dengan menggunakan nilai `random_state` yang sama, Anda dapat memastikan bahwa model yang dihasilkan akan konsisten setiap kali kode dijalankan. Pada contoh ini, nilai `random_state` adalah 55.
+
+Pada contoh kode di atas, objek AdaBoostRegressor dibuat dengan menggunakan `learning_rate=0.05` dan `random_state=55`. Model Boosting kemudian dilatih menggunakan data pelatihan (`X_train` dan `y_train`). Selanjutnya, MSE (Mean Squared Error) dihitung antara nilai prediksi (`y_pred`) yang dihasilkan oleh model Boosting terhadap data pelatihan (`X_train`) dengan nilai sebenarnya (`y_train`). Nilai MSE tersebut kemudian disimpan dalam variabel `models.loc['train_mse', 'Boosting']`.
+
+Dengan menggunakan parameter tersebut, Anda dapat mengontrol kecepatan pembelajaran model (learning rate) dan memastikan reproduksibilitas model (random state) dalam algoritma Boosting.
 
 ## Evaluation
 
@@ -295,8 +311,8 @@ Hasil dari MSE menunjukan:
 
 ![Hasil dari MSE](https://github.com/mauluddin12z/Proyek-1-Machine-Learning-Dicoding/assets/71598808/c97a792f-5db2-4994-b844-847b237feffb)
 
-Gambar 13. Hasil dari MSE
-Dari Gambar 13 di atas, dapat disimpulkan bahwa *RF* adalah teknik *modeling* yang terbaik karena memberikan nilai *error* yang paling sedikit.
+Gambar 12. Hasil dari MSE
+Dari Gambar 12 di atas, dapat disimpulkan bahwa *RF* adalah teknik *modeling* yang terbaik karena memberikan nilai *error* yang paling sedikit.
 
 Berikut adalah hasil ujinya.
 
