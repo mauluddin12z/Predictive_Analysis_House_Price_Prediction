@@ -275,9 +275,19 @@ Secara matematis, MSE dihitung dengan mengambil selisih antara nilai sebenarnya 
 
 
 
-# $$ \text{MSE} = \frac{1}{n} \sum_{i=1}^{n}(y_i - \hat{y}_i)^2 $$
+$$ \text{MSE} = \frac{1}{n} \sum_{i=1}^{n}(y_i - \hat{y}_i)^2 $$
 
+Keterangan:
 
+- **MSE**: Mean Squared Error (Rata-rata Kesalahan Kuadrat)
+
+- **n**: Jumlah sampel dalam dataset
+
+- **yᵢ**: Nilai sebenarnya dari target pada sampel ke-i
+
+- **ȳ**: Nilai rata-rata dari target pada seluruh sampel
+
+  
 
 Semakin kecil nilai MSE, semakin baik model regresi tersebut memprediksi nilai target. Namun, MSE tidak selalu cocok untuk digunakan dalam semua situasi, misalnya ketika terdapat banyak outlier dalam data.
 
@@ -285,7 +295,7 @@ Hasil dari MSE menunjukan:
 
 ![Hasil dari MSE](https://github.com/mauluddin12z/Proyek-1-Machine-Learning-Dicoding/assets/71598808/c97a792f-5db2-4994-b844-847b237feffb)
 
-Gambar 14. Hasil dari MSE
+Gambar 13. Hasil dari MSE
 Dari Gambar 14 di atas, dapat disimpulkan bahwa *RF* adalah teknik *modeling* yang terbaik karena memberikan nilai *error* yang paling sedikit.
 
 Berikut adalah hasil ujinya.
