@@ -296,7 +296,7 @@ Hasil dari MSE menunjukan:
 ![Hasil dari MSE](https://github.com/mauluddin12z/Proyek-1-Machine-Learning-Dicoding/assets/71598808/c97a792f-5db2-4994-b844-847b237feffb)
 
 Gambar 13. Hasil dari MSE
-Dari Gambar 14 di atas, dapat disimpulkan bahwa *RF* adalah teknik *modeling* yang terbaik karena memberikan nilai *error* yang paling sedikit.
+Dari Gambar 13 di atas, dapat disimpulkan bahwa *RF* adalah teknik *modeling* yang terbaik karena memberikan nilai *error* yang paling sedikit.
 
 Berikut adalah hasil ujinya.
 
