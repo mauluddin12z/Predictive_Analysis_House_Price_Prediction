@@ -272,9 +272,7 @@ Mean squared error (MSE) adalah salah satu ukuran kesalahan yang digunakan dalam
 
 Secara matematis, MSE dihitung dengan mengambil selisih antara nilai sebenarnya dan nilai prediksi, mengkuadratkannya, menjumlahkan hasilnya, dan kemudian membagi jumlah ini dengan jumlah sampel. Lebih formalnya, jika kita memiliki n sampel dengan nilai sebenarnya *y_i* dan nilai prediksi *ŷ_i*, maka MSE dapat dihitung sebagai berikut:
 
-![Rumus MSE](https://github.com/mauluddin12z/Proyek-1-Machine-Learning-Dicoding/assets/71598808/d8ec0097-a3d2-4be3-970f-e2311836c518)
-
-Gambar 13. Rumus MSE
+## $$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
 
 Semakin kecil nilai MSE, semakin baik model regresi tersebut memprediksi nilai target. Namun, MSE tidak selalu cocok untuk digunakan dalam semua situasi, misalnya ketika terdapat banyak outlier dalam data.
 
