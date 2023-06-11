@@ -67,7 +67,7 @@ Berdasarkan visualisasi boxplot, terdapat beberapa outliers pada fitur-fitur ter
   ![Numerical Feature Bedrooms](https://github.com/mauluddin12z/Proyek-1-Machine-Learning-Dicoding/assets/71598808/ad3edd44-a32d-412e-8006-62fa83cdea9d)
 
   Gambar 2. *Numerical* *Feature* *Bedrooms*
-  
+
 - *Numerical Feature: Bathrooms*
 
 ![Numerical Feature Bathrooms](https://github.com/mauluddin12z/Proyek-1-Machine-Learning-Dicoding/assets/71598808/2eec8f42-3965-46cc-b6d9-2773984daf01)
@@ -88,14 +88,14 @@ Untuk mengatasi outliers tersebut, akan dilakukan penghapusan outliers dengan me
 
 1. *Categorical Feature Property Type*
 
-   
-     Tabel 1. *Categorical Feature Property Type*
-  
-     |          | Jumlah Sampel | Persentase |
-     | -------- | ------------- | ---------- |
-     | Condo    | 198           | 35.2       |
-     | House    | 190           | 33.7       |
-     | Apartmen | 175           | 31.1       |
+
+   Tabel 1. *Categorical Feature Property Type*
+
+   |          | Jumlah Sampel | Persentase |
+   | -------- | ------------- | ---------- |
+   | Condo    | 198           | 35.2       |
+   | House    | 190           | 33.7       |
+   | Apartmen | 175           | 31.1       |
 
 ![Categorical Feature - Property Type](https://github.com/mauluddin12z/Proyek-1-Machine-Learning-Dicoding/assets/71598808/6a2d90b9-8a19-4c6f-9a90-bbbb283081a2)
 
@@ -136,6 +136,7 @@ Berdasarkan Tabel 2 dan Gambar 6 di atas, dapat dilihat informasi mengenai data 
    Gambar 7. *Histogram Numerical Feature*
 
 Mari kita perhatikan Gambar 7, yaitu histogram *Numerical Feature*. Dari gambar tersebut, dapat diperoleh beberapa informasi berikut:
+
   - Terdapat peningkatan harga properti yang disertai dengan penurunan jumlah sampel pada kolom *Price*.
   - Distribusi harga properti cenderung miring ke kanan (*right-skewed*). Hal ini menunjukkan bahwa ada sebagian besar properti dengan harga yang relatif rendah, sedangkan properti dengan harga tinggi lebih sedikit. Informasi ini perlu dipertimbangkan saat membangun model prediksi, karena kemiringan distribusi dapat mempengaruhi performa model.
 
