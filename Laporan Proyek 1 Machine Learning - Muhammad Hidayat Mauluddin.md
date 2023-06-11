@@ -56,7 +56,9 @@ Berdasarkan visualisasi boxplot, terdapat beberapa outliers pada fitur-fitur ter
 
 ![Numerical Feature Area (sq  ft )](https://github.com/mauluddin12z/Proyek-1-Machine-Learning-Dicoding/assets/71598808/77384f34-8cf5-409c-9db3-9442251f49d7)
 
-  Gambar 1. *Numerical Feature*: Area (sq. ft.)
+Gambar 1. *Numerical Feature*: Area (sq. ft.)
+
+Pada gambar 1 *Numerical Feature*: Area (sq. ft.). Tidak terdapat outliers pada *Numerical Feature*: Area (sq. ft.).
 
 - *Numerical Feature*: *Bedrooms*
 
@@ -64,19 +66,23 @@ Berdasarkan visualisasi boxplot, terdapat beberapa outliers pada fitur-fitur ter
 
   Gambar 2. *Numerical* *Feature* *Bedrooms*
 
+  Pada gambar 2 *Numerical* *Feature* *Bedrooms*. Tidak terdapat outliers pada *Numerical* *Feature* *Bedrooms*
+
 - *Numerical Feature: Bathrooms*
 
 ![Numerical Feature Bathrooms](https://github.com/mauluddin12z/Proyek-1-Machine-Learning-Dicoding/assets/71598808/2eec8f42-3965-46cc-b6d9-2773984daf01)
 
-  Gambar 3. *Numerical Feature Bathrooms*
+Gambar 3. *Numerical Feature Bathrooms*
+
+Pada gambar 3 *Numerical* *Feature* *Bedrooms*. Terdapat outliers pada *Numerical* *Feature* *Bedrooms*. Oleh karena itu akan di lakukan penghapusan menggunakan metode IQR (*Interquartile Range*) pada fitur ini.
 
 - *Numerical Feature*: *Price* (THB)
 
 ![Numerical Feature Price (THB)](https://github.com/mauluddin12z/Proyek-1-Machine-Learning-Dicoding/assets/71598808/2c3a519d-3c5f-4e79-94c1-4cd214cb4910)
 
-  Gambar 4. Numerical Feature: Price (THB)
+Gambar 4. *Numerical Feature Price* (THB)
 
-Untuk mengatasi outliers tersebut, akan dilakukan penghapusan outliers dengan menggunakan metode IQR (*Interquartile Range*).
+Pada gambar 4 Numerical Feature Price (THB). Terdapat outliers *Numerical Feature Price*. Oleh karena itu akan di lakukan penghapusan menggunakan metode IQR (*Interquartile Range*) pada fitur ini.
 
 ### EDA - Univariate Analysis
 
@@ -156,7 +162,7 @@ Berdasarkan gambar tersebut, dapat disimpulkan:
 Gambar 9. *Numerical Feature* terhadap *Price*
 
 
-Berdasarkan Gambar 9 di atas, dapat disimpulkan bahwa fitur-fitur tersebut memiliki pengaruh terhadap kenaikan harga properti.
+Berdasarkan Gambar 9 di atas,  Fitur-fitur tersebut memiliki pengaruh terhadap kenaikan harga properti.
 
 #### Correlation Matrix: 
 
@@ -164,7 +170,7 @@ Berdasarkan Gambar 9 di atas, dapat disimpulkan bahwa fitur-fitur tersebut memil
 
 Gambar 10. *Correlation Matrix*
 
-Berdasarkan Gambar 10, *correlation matrix*, dapat disimpulkan bahwa variabel "*Price*" memiliki korelasi yang cukup kuat dengan "*Area*", "*Bedrooms*", dan "*Bathrooms*". Oleh karena itu, ketiga fitur tersebut dapat menjadi kandidat yang baik untuk teknik reduksi dimensi.
+Berdasarkan Gambar 10 *correlation matrix*, Variabel "*Price*" memiliki korelasi yang cukup kuat dengan "*Area*", "*Bedrooms*", dan "*Bathrooms*". Oleh karena itu, ketiga fitur tersebut dapat menjadi kandidat yang baik untuk teknik reduksi dimensi.
 
 ## Data Preparation
 
@@ -312,7 +318,7 @@ Hasil dari MSE menunjukan:
 ![Hasil dari MSE](https://github.com/mauluddin12z/Proyek-1-Machine-Learning-Dicoding/assets/71598808/c97a792f-5db2-4994-b844-847b237feffb)
 
 Gambar 12. Hasil dari MSE
-Dari Gambar 12 di atas, dapat disimpulkan bahwa *RF* adalah teknik *modeling* yang terbaik karena memberikan nilai *error* yang paling sedikit.
+Dari Gambar 12 di atas, *RF* adalah teknik *modeling* yang terbaik karena memberikan nilai *error* yang paling sedikit.
 
 Berikut adalah hasil ujinya.
 
